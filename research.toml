@@ -1,0 +1,18 @@
+# Copy alongside a target repository, or use examples/example-linear-regression/prepare.py.
+repository = "."
+program = "program.md"
+coordinator_instructions = "prompts/coordinator.md"
+worker_instructions = "prompts/worker.md"
+coordinator_model = "gpt-6.1-sol"
+worker_model = "gpt-6-luna"
+allowed_paths = ["candidate.py"]
+# Include indirect evaluator dependencies/data here as well.
+protected_paths = ["evaluate.py"]
+evaluation_command = ["python3", "evaluate.py"]
+direction = "minimize"
+workers = 3
+evaluation_concurrency = 1
+status_interval = 60
+# Optional seconds; omitted means no timeout.
+# worker_timeout = 3600
+# evaluation_timeout = 600

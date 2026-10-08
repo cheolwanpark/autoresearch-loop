@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "research-loop-reference"
+version = "0.1.0"
+description = "Small, unattended numerical research campaigns with Codex workers"
+requires-python = ">=3.11"
+dependencies = ["openai-codex==0.161.0"]
+
+[project.scripts]
+research = "research_loop.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=1,<2"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/research_loop"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
